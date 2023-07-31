@@ -1,0 +1,97 @@
+on commence par la presentation de nagios :
+Nagios est un outil de supervision open source utilisé pour surveiller les systèmes, les réseaux, les applications et les services. Il fournit des notifications en temps réel pour des événements critiques, ce qui permet aux équipes informatiques de résoudre rapidement les problèmes et de minimiser les temps d'arrêt.
+_____________________________________________________________________________________________
+
+Les fonctionnalités de Nagios sont très nombreuses, parmi les plus communes nous pouvons citer les suivantes
+premièrment Surveillance multiplateforme:
+  elle permet de surveiller et de collecter des informations sur plusieurs systèmes d'exploitation et plates-formes différentes. Elle offre une visibilité globale et centralisée des performances et de la disponibilité des ressources
+deuximment les  Notifications:
+ Nagios peut envoyer des notifications en temps réel aux administrateurs système par e-mail ou SMS sur les événements les plus importants
+ensuite la Gestion des événements:
+  Nagios stocke tous les événements et les alertes pour les reports et l'analyse.
+et la Cartographie du réseau supervisé:
+visualiser graphiquement la structure et l'état du réseau surveillé. Elle offre une représentation visuelle claire des hôtes, facilitant ainsi la détection des problèmes et la prise de décisions rapides
+Photo :  et Toutes ces fonctionnalités sont assurées grâce la gestion et supervision du réseau et ses différentes entités d’une manière centralisée
+_____________________________________________________________________________________________
+
+Nagios fonctionne grâce à des plugins qui sont des programmes exécutables écrites en perl ou en c ou avec d’autres langage de programmation 
+>>lire le slide
+check_http Vérifie la réponse d'un serveur web
+check_disk Vérifie l'espace disque disponible sur un système
+check_users Compte le nombre d'utilisateurs sur la machine locale.
+check_load Vérifie la charge CPU locale.
+La relation entre le noyau de Nagios et les plugins est assurée par les fichiers de configuration, ainsi que par le code de retour renvoyé par chaque plugin. Cette relation peut se résumer par ce tableau
+>>>lire le slide (tableau)
+_____________________________________________________________________________________________
+
+>>>lire le slide 
+Nagios.cfg : est le fichier de configuration principal de Nagios. Il contient la liste des autres fichiers de configuration et comprend l'ensemble des directives globales de fonctionnement.
+Hosts.cfg : définit les différents hôtes du réseau à superviser. A chaque hôte est associé son nom, son adresse IP, le test à effectuer par défaut pour caractériser l'état de l'hôte, etc.
+Services.cfg : associe à chaque hôte ou à chaque groupe d'hôtes l'ensemble des services qui doivent être vérifiés.
+Commands.cfg : contient les définitions des commandes externes, telles que celles qui seront utiles pour la remontée d'alerte.
+Contacts.cfg : déclare les contacts à prévenir en cas d'incident et définit les paramètres des alertes
+____________________________________________________________________________________________
+
+Administrateur de supervision : c'est L'administrateur système est responsable de la
+configuration et de la gestion globale du système de supervision Nagios Core. Il peut créer,
+modifier et supprimer des hôtes, des services, des notifications, des plugins, etc. Il a accès à
+toutes les fonctionnalités du système.
+Administrateur spécialisé : Cet acteur représente les utilisateurs qui consultent les
+informations de surveillance fournies par Nagios Core. Ils peuvent afficher les statuts, les
+alertes et les rapports générés par le système. Ils n'ont généralement pas les privilèges
+d'administration.
+____________________________________________________________________________________________
+Use case:
+
+nous avons également identifer plusieurs cas d'utilisation dans notre diagramme.
+Premièrement tous les acteurs doivent être authentifié.
+on a l'Administrateur de supervision qui va:
+Gérer les utilisateurs. Ajouter ,modifier, supprimer un utilisateur 
+Gérer les droit d'acces des utilisateur
+planifier des verification 
+configurer hote 
+configurer service
+configurer les seuils d'alerts
+configurer les alertes et notification
+gestion des rapport ( permet de collecter, analyser et présenter les données de surveillance pour une meilleure compréhension de l'état du réseau et des systèmes. Cela facilite la prise de décision et de détecter les problèmes potentiels)
+il peut visualiser l'étate d'une hote  et l'etat d'un service 
+et il recois des notification par mail ou par message
+
+On a aussi l'Administrateur spécialisé qui peut :
+visualisé l'état d'hote et l'état d'un service 
+et il recois des notification par mail ou par message 
+____________________________________________________________________________________________
+classdiag:
+
+ dans notre diagramme de classes nous avons les classes suivantes:
+-La classe utilisateur, elle est la classe parente des classes adminstrateur de supersion et  administrateur specialsé.
+-la classe principale nagios a une relation d'agregatioin avec 5 classes
+-la classe host qui peut etre composée d'un ou plusuirs service.
+-on peut associer un ou plusieur contact a des services et des hotes diferentes pour que se dernier puisse etre notifier.
+-nagios utilise des commandes pour superviser les hotes et les services.
+
+on trouve aussi:
+-les classe host groupe , service groupe , contact groupe qui contienne respectivment un ou plusieur hotes , service et contact.
+________________________________________________________________________________________________
+
+Après avoir présenté en détails la conception de notre solution, nous allons maintenant expliquer comment implémenter cette dernière.
+_________________________________________________________________________________________________
+
+Pour implémenter notre solution Nagios Core, nous avons utilisé le logiciel de virtualisation Oracle VM VirtualBox, pour pouvoir installer toutes les machines qu’on souhaite superviser.
+_________________________________________________________________________________________________
+
+>>>lire le slide
+A présent je vais laisser mon binôme vous présenter ces étapes en détails.
+________________________________________________________________________________________________
+
+>>>lire le slide
+C’est tout pour nous , nous vous remercions pour votre attention, et nous sommes a l’écoute de toute vos questions.
+
+
+
+
+
+
+
+
+ 
